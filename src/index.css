@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{
+  padding: 0%;
+  margin: 0%;
+}
+#mobile-home{
+  background: linear-gradient(120deg,#668ce3 10% , #3867D6 60% , #668ce3);
+}
+#footer-bottom-mobile{
+  background: linear-gradient(-20deg, #3867D6 , #668ce3);
+}
+#footer-mobile{
+  background: linear-gradient(195deg, #3867D6  54% , #809ee4);
+}
