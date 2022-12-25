@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App text-center">
        <Navbar/>
-       <Home id="home"/>
+       <Home id="home"/> 
        <Main/>
        <Suspense id="footer" fallback={<div >loading</div>}>
         <Footer/>
