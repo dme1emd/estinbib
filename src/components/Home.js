@@ -8,7 +8,7 @@ export const Home = () => {
          h-80 space-y-4 py-16 px-10
          text-white
          relative
-         overflow-hidden
+         overflow-hidden mt-16
          `}
          id="mobile-home">
         <h1 className='text-2xl'>lorem ipsum</h1>
