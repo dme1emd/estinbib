@@ -1,4 +1,4 @@
-import React , {Suspense}from 'react';
+import React , {Suspense, useState}from 'react';
 import './App.css';
 import { Home } from './components/Home';
 import { Main } from './components/Main';
@@ -8,9 +8,9 @@ function App() {
   return (
     <div className="App text-center">
        <Navbar/>
-       <Home/>
+       <Home id="home"/> 
        <Main/>
-       <Suspense fallback={<div>loading hhh</div>}>
+       <Suspense id="footer" fallback={<div >loading</div>}>
         <Footer/>
        </Suspense>
     </div>
