@@ -1,36 +1,68 @@
-import React, { useState } from 'react'
-import estinBibLogo from '../images/logo_estin_bib.svg'
-import menuHam from '../images/menu_ham.svg'
-export const Navbar = ({fun}) => {
-  const [showNavLinks , setShowNavLinks] = useState(false)
-  return (
-    <div className='flex justify-between 
-    p-4  bg-gradient-to-r from-[#89a5e7] to-[#3867D6]
-     px-6 fixed top-0 w-[100%] z-30'>
-        <img src={estinBibLogo} />
-        <img src={menuHam} onClick={()=>{setShowNavLinks(true)}}/>
-      {showNavLinks ?<ul className='flex flex-col space-y-4 fixed top-0 left-0 bg-blue-500 h-auto
-    list-none z-30 w-[100%] py-6 text-white text-xl
-    '>
-        <li>
-            <a href='#1cp'>1 cp</a>
-        </li>        
-        <li>
-            <a href='#2cp'>2 cp</a>
-        </li>        
-        <li>
-            <a href='#1cs'>1 cs</a>
-        </li>       
-        <li>
-            <a href='#2cs'>2 cs</a>
-        </li>
-        <li>
-            <a href='#3cs'>3 cs</a>
-        </li>
-        <li>
-            <a href="#footer" className='bg-[#FA8231] w-40 px-5 py-3 text-white rounded-xl'>contribuer</a>
-        </li>
-    </ul>:''}
-    </div>
-  )
+import './Navbar.css'
+import {AiOutlineMenu} from 'react-icons/ai'
+import { useState } from 'react';
+export default function Navbar() {
+   
+   
+
+var lastScrollTop = 0;
+setTimeout(()=>{
+   const nav=document.querySelector(".Navbar")
+    const navMob = document.querySelector('.nav-mobile')
+  window.addEventListener("scroll",function(){
+    var scrollTop=window.pageYOffset || this.document.documentElement.scrollTop;
+    if(scrollTop > lastScrollTop){
+        nav.style.top="-80px"
+        setShow(false)
+    } else{
+        nav.style.top="0"
+        nav.style.background="linear-gradient(to right,rgba(122, 152, 220, 0.565) 10% ,rgb(56, 103, 214,1)  )";
+        
+    }
+    if(scrollTop===0){
+        nav.style.top="0";
+        nav.style.background="#ffffff00";
+        
+    }
+    console.log(nav.style.backgroundColor)
+    lastScrollTop=scrollTop;
+
+   })},1000)
+
+
+
+ 
+   
+      const [show , setShow] = useState(false)
+   
+
+    return(
+        <>
+        <nav  className="Navbar">
+                    <img className='logo' src='/logo.svg'/>  
+                    <AiOutlineMenu className='menu' onClick={()=>setShow(!show)}/>
+                    <div className='navbarRight'>
+                        <span className='navSpan '><a href='#accueil'>Accueil</a></span>
+                        <span className='navSpan '><a href='#1CP'>1CP</a></span>
+                        <span className='navSpan '><a href='#2CP'>2CP</a></span>
+                        <span className='navSpan '><a href='#1CS'>1CS</a></span>
+                        <span className='navSpan '><a href='#2CS'>2CS</a></span>
+                        <span className='navSpan '><a href='#3CS'>3CS</a></span>
+                        <button className='contribuer'><a href=''>Contribuer</a></button>
+                    </div> 
+                    {
+                        show?<div className='nav-mobile'>
+                        <span><a href='#accueil'>Accueil</a></span>
+                        <span><a href='#1CP'>1CP</a></span>
+                        <span><a href='#2CP'>2CP</a></span>
+                        <span><a href='#1CS'>1CS</a></span>
+                        <span><a href='#2CS'>2CS</a></span>
+                        <span><a href='#3CS'>3CS</a></span>
+                        <button className='contribuer'><a href=''>Contribuer</a></button>
+                    </div> :""}
+                </nav>
+        </>
+    )
+
+
 }

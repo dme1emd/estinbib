@@ -1,20 +1,33 @@
-import React , {Suspense, useState}from 'react';
+import React from 'react';
+import { useState } from 'react';
 import './App.css';
-import { Home } from './components/Home';
+import Intro from './components/Intro';
+import Navbar from './components/Navbar'
+
+import Footer from './components/Footer'
 import { Main } from './components/Main';
-import { Navbar } from './components/Navbar';
-const Footer = React.lazy(()=>import('./components/Footer'));
+
+
+
+
 function App() {
-  return (
-    <div className="App text-center">
-       <Navbar/>
-       <Home id="home"/> 
-       <Main/>
-       <Suspense id="footer" fallback={<div >loading</div>}>
-        <Footer/>
-       </Suspense>
+
+ return(
+
+    <div className='App'>
+        <div className='blur1'></div>
+        <div className='blur2'></div>
+        <img src='/left1.svg' className='left1'/>
+        <img src='/left2.svg' className='left2'/>
+        <img src='/right.svg' className='right'/>
+        <Navbar />
+        <Intro />
+        <Main/>
+        <Footer />
+        
+        
     </div>
-  );
+  )
 }
 
-export default App;
+export default App; 

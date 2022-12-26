@@ -20,21 +20,17 @@ export const ListeModules = () => {
         },
     ]
   return (
-    <div className={`flex flex-col space-y-0
-    my-6 w-3/4 mx-auto shadow-2xl rounded-b-lg
-    `}>
-        <div className={`bg-[#4B7BEC] flex justify-center items-center
-            text-white space-x-4 rounded-t-lg py-2
-        `}>
+    <div className="liste-modules-container">
+        <div className="header">
             <IoIosArrowBack 
             onClick={()=>setFirstSem(true)}
-            className={!firstSem ? 'text-white':'text-white opacity-50'}/>
+            className={firstSem ? "arr tr":"arr"}/>
             <div>semestre {firstSem ? 1:2}</div>
             <IoIosArrowForward onClick={()=>setFirstSem(false)}
-            className={firstSem ? 'text-white':'text-white opacity-50'}
+            className={!firstSem ? 'arr tr':'arr'}
             />
         </div>
-        <div className='px-6 rounded-b-lg'>
+        <div className='body-liste'>
             {listeModule.map((e)=><Module module={e}/>)}
         </div>
     </div>
